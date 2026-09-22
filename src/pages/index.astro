@@ -1,0 +1,185 @@
+---
+import Icon from '../components/Icon.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { siteConfig } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  {siteConfig.isDraft && (
+    <aside class="preview-note" aria-label="Local preview notice">
+      <div class="container">Local draft · Please review the wording and public information before publishing.</div>
+    </aside>
+  )}
+
+  <section class="hero">
+    <div class="signal-field" aria-hidden="true">
+      <svg viewBox="0 0 760 300" preserveAspectRatio="none">
+        <path d="M0 161 C68 161 78 160 106 160 S146 158 172 158 C191 158 194 36 213 36 C232 36 235 267 254 267 C273 267 279 104 298 104 C318 104 320 200 340 200 C362 200 366 142 389 142 C414 142 419 164 445 164 S506 160 545 160 C586 160 603 158 646 158 S715 160 760 160" />
+        <path class="faint" d="M0 181 C120 181 116 174 180 174 C210 174 219 219 249 219 C279 219 285 124 315 124 C345 124 358 180 391 180 C438 180 465 177 510 177 S650 181 760 181" />
+      </svg>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow"><span></span>{siteConfig.eyebrow}</p>
+        <h1>Security in the<br /><em>unseen signals.</em></h1>
+        <p class="hero-intro">{siteConfig.introduction}</p>
+        <div class="hero-actions">
+          <a class="button" href="#research">View research <Icon name="arrow" size={17} /></a>
+          <a class="button secondary" href={`mailto:${siteConfig.email}`}>Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="identity-card" aria-label="Profile summary">
+        <div class="portrait-visual">
+          <img src="/rainy-transit-dusk.webp" alt="Rainy landscape seen through a transit window at dusk" />
+          <blockquote>结局无非两种，<br /><strong>好事，好故事</strong></blockquote>
+        </div>
+        <div class="identity-copy">
+          <p>Undergraduate student in Internet of Things Engineering</p>
+          <strong>{siteConfig.englishName}</strong>
+          <span>{siteConfig.location}</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-rule" id="learning">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Current learning"
+        title="FPGA & Side-Channel Analysis"
+        description="Topics include digital design workflows for FPGA platforms and the experimental methodology of side-channel analysis."
+      />
+      <div class="focus-grid">
+        {siteConfig.learning.map((item) => (
+          <article class="focus-card">
+            <span class="focus-index">{item.index}</span>
+            <div class="focus-glyph" aria-hidden="true"><i></i></div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section research-section" id="research">
+    <div class="container">
+      <p class="eyebrow-text research-heading">Research</p>
+      <div class="research-list">
+        {siteConfig.research.map((item, index) => (
+          <article class="research-card">
+            <div class="research-number">0{index + 1}</div>
+            <div class="research-copy">
+              <p class="research-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <ul>{item.tags.map((tag) => <li>{tag}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-rule" id="about">
+    <div class="container about-grid">
+      <p class="eyebrow-text about-label">About</p>
+      <div class="about-content">
+        <p class="lead">
+          Research activities in side-channel analysis are conducted with the
+          <a href={siteConfig.lab.url} target="_blank" rel="noreferrer">{siteConfig.lab.name}</a>.
+        </p>
+        <div class="education-card">
+          <div class="education-mark" aria-hidden="true">
+            <img src="/hnust-emblem.png" alt="" />
+          </div>
+          <div>
+            <span>Education</span>
+            <h3>{siteConfig.education.school}</h3>
+            <p>{siteConfig.education.degree} · {siteConfig.education.period}</p>
+            <small>{siteConfig.education.details}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-card">
+      <p class="eyebrow-text">Contact</p>
+      <h2>Questions, ideas, or a conversation about research.</h2>
+      <p>For research-related correspondence, please feel free to reach me by email.</p>
+      <a class="button contact-button" href={`mailto:${siteConfig.email}`}>Email me <Icon name="email" size={17} /></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .preview-note { border-bottom: 1px solid color-mix(in srgb, var(--violet) 20%, var(--line)); background: var(--violet-soft); color: #4b327f; font-size: .73rem; font-weight: 650; }
+  .preview-note .container { padding-block: .65rem; }
+  .hero { position: relative; min-height: calc(100svh - 108px); display: grid; align-items: center; padding: clamp(4.5rem, 9vw, 8rem) 0; overflow: hidden; }
+  .signal-field { position: absolute; width: min(58vw, 760px); right: -7vw; top: 10%; opacity: .36; pointer-events: none; }
+  .signal-field svg { width: 100%; overflow: visible; }
+  .signal-field path { fill: none; stroke: var(--violet); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+  .signal-field .faint { opacity: .3; stroke-dasharray: 3 8; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(290px, .62fr); align-items: center; gap: clamp(3rem, 8vw, 8rem); }
+  .hero-copy { position: relative; z-index: 2; }
+  .hero-eyebrow { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.4rem; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .hero-eyebrow span { width: 1.8rem; height: 1px; background: var(--violet); }
+  h1 { margin: 0; font-family: var(--font-display); font-size: clamp(3.6rem, 7vw, 7rem); font-weight: 430; letter-spacing: -.068em; line-height: .9; }
+  h1 em { color: var(--violet); font-weight: 400; }
+  .hero-intro { max-width: 700px; margin: 2rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.8; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .identity-card { position: relative; z-index: 2; padding: 1.4rem; border: 1px solid color-mix(in srgb, var(--violet) 18%, var(--line)); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--paper-raised) 90%, transparent); box-shadow: var(--shadow-soft); backdrop-filter: blur(14px); }
+  .portrait-visual { position: relative; min-height: 245px; overflow: hidden; border-radius: calc(var(--radius-lg) - 8px); background: #303849; }
+  .portrait-visual::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,17,27,.04) 18%, rgba(13,17,27,.66) 100%); content: ''; }
+  .portrait-visual img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+  .portrait-visual blockquote { position: absolute; z-index: 1; right: 1.25rem; bottom: 1.15rem; left: 1.25rem; margin: 0; color: rgba(255,255,255,.86); font-family: "Songti SC", "Noto Serif SC", var(--font-display); font-size: .92rem; letter-spacing: .04em; line-height: 1.65; text-shadow: 0 2px 18px rgba(0,0,0,.65); }
+  .portrait-visual blockquote strong { color: white; font-size: 1.23rem; font-weight: 560; }
+  .identity-copy { padding: 1.3rem .2rem 1rem; }
+  .identity-copy p { margin: 0; color: var(--violet); font-size: .65rem; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
+  .identity-copy strong { display: block; margin-top: .45rem; font-family: var(--font-display); font-size: 1.55rem; }
+  .identity-copy span { color: var(--muted); font-size: .75rem; }
+  .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--line); }
+  .focus-card { min-height: 310px; padding: clamp(1.5rem, 3vw, 2.2rem); background: var(--paper-raised); }
+  .focus-index { color: var(--muted); font-family: var(--font-display); font-size: .8rem; font-style: italic; }
+  .focus-glyph { width: 5rem; height: 5rem; display: grid; place-items: center; margin: 2.5rem 0 2.2rem; border: 1px solid color-mix(in srgb, var(--violet) 38%, var(--line)); border-radius: 50%; }
+  .focus-glyph::before, .focus-glyph::after, .focus-glyph i { width: 2.1rem; height: 2.1rem; position: absolute; border: 1px solid var(--violet); border-radius: 50%; content: ''; }
+  .focus-glyph::before { transform: translateX(-.65rem); } .focus-glyph::after { transform: translateX(.65rem); } .focus-glyph i { transform: translateY(.65rem); opacity: .45; }
+  .focus-card:nth-child(2) .focus-glyph { border-radius: 20%; transform: rotate(45deg); }
+  .focus-card h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.35rem, 2.2vw, 1.75rem); font-weight: 560; letter-spacing: -.03em; }
+  .focus-card p { margin: .9rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+  .research-section { color: #f7f5ee; background: #19181e; }
+  .research-heading { margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+  .research-section :global(.section-heading .description) { color: #a9a4b2; }
+  .research-list { display: grid; gap: 1px; border: 1px solid #39363f; border-radius: var(--radius-lg); overflow: hidden; background: #39363f; }
+  .research-card { display: grid; grid-template-columns: 110px 1fr; gap: 2rem; padding: clamp(1.7rem, 4vw, 3rem); background: #211f26; }
+  .research-number { color: #8670cc; font-family: var(--font-display); font-size: 3rem; font-style: italic; }
+  .research-label { margin: 0; color: #9f90d2 !important; font-size: .68rem !important; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
+  .research-copy h3 { margin: .65rem 0 0; max-width: 800px; font-family: var(--font-display); font-size: clamp(1.65rem, 3vw, 2.5rem); font-weight: 520; letter-spacing: -.035em; }
+  .research-copy > p { max-width: 850px; color: #bdb8c5; font-size: .93rem; line-height: 1.75; }
+  .research-copy ul { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.3rem 0 0; padding: 0; list-style: none; }
+  .research-copy li { padding: .35rem .65rem; border: 1px solid #48444f; border-radius: 999px; color: #aaa5b2; font-size: .66rem; }
+  .about-grid { display: grid; grid-template-columns: minmax(110px, .28fr) minmax(0, 1.72fr); gap: clamp(2rem, 6vw, 6rem); }
+  .about-label { margin-top: .35rem; }
+  .lead { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 1.65rem); line-height: 1.5; }
+  .lead a { color: var(--violet); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  .education-card { display: grid; grid-template-columns: 80px 1fr; gap: 1.25rem; margin-top: 2rem; padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper-raised); }
+  .education-mark { width: 72px; height: 72px; display: grid; place-items: center; border-radius: 50%; background: #0799d1; }
+  .education-mark img { width: 58px; height: 58px; object-fit: contain; filter: brightness(0) invert(1); }
+  .education-card span { color: var(--violet); font-size: .65rem; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
+  .education-card h3 { margin: .35rem 0; font-family: var(--font-display); font-size: 1.25rem; }
+  .education-card p, .education-card small { color: var(--muted); font-size: .78rem; }
+  .contact-section { padding: 0 0 clamp(5rem, 9vw, 8rem); }
+  .contact-card { position: relative; overflow: hidden; padding: clamp(2.5rem, 7vw, 5rem); border-radius: var(--radius-lg); color: white; background: var(--violet); }
+  .contact-card::after { position: absolute; width: 28rem; height: 28rem; right: -10rem; bottom: -17rem; border: 1px dashed rgba(255,255,255,.35); border-radius: 50%; box-shadow: 0 0 0 45px rgba(255,255,255,.035), 0 0 0 90px rgba(255,255,255,.025); content: ''; }
+  .contact-card .eyebrow-text { color: #ddd1ff; }
+  .contact-card h2 { max-width: 760px; margin: 1rem 0 0; font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 460; letter-spacing: -.05em; line-height: 1; }
+  .contact-card > p:not(.eyebrow-text) { max-width: 620px; color: #ddd5f2; line-height: 1.7; }
+  .contact-button { position: relative; z-index: 1; margin-top: 1.3rem; border-color: white; color: var(--violet); background: white; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .identity-card { max-width: 460px; } .signal-field { width: 100vw; opacity: .2; } .focus-grid { grid-template-columns: 1fr; } .focus-card { min-height: auto; } .about-grid { grid-template-columns: 1fr; gap: 2rem; } .about-label { margin: 0; } }
+  @media (max-width: 620px) { .hero { min-height: auto; padding-top: 4rem; } h1 { font-size: clamp(3.2rem, 15vw, 4.8rem); } .identity-card { padding: 1rem; } .portrait-visual { min-height: 210px; } .research-card { grid-template-columns: 1fr; gap: .4rem; } .research-number { font-size: 2rem; } .education-card { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,15 @@
+{
+  "name": "Caijian Luo · Personal Academic Homepage",
+  "short_name": "Caijian Luo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f2eb",
+  "theme_color": "#f4f2eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

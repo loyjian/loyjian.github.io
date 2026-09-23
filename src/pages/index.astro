@@ -1,5 +1,4 @@
 ---
-import Icon from '../components/Icon.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { siteConfig } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -17,10 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container hero-grid">
       <div class="hero-copy">
         <h1>Security in the<br /><em>unseen signals.</em></h1>
-        <p class="hero-intro">{siteConfig.introduction}</p>
-        <div class="hero-actions">
-          <a class="button" href="#research">View research <Icon name="arrow" size={17} /></a>
-        </div>
+        <p class="hero-intro">Information leakage from the physical behavior of embedded devices, with methods for analysis and mitigation.</p>
       </div>
 
       <aside class="identity-card" aria-label="Profile summary">
@@ -52,7 +48,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <SectionHeading
         eyebrow="Current learning"
         title="FPGA & Side-Channel Analysis"
-        description="Topics include digital design workflows for FPGA platforms and the experimental methodology of side-channel analysis."
       />
       <div class="focus-grid">
         {siteConfig.learning.map((item) => (
@@ -101,7 +96,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .hero { position: relative; min-height: 650px; display: grid; align-items: center; padding: clamp(4rem, 7vw, 6.5rem) 0; overflow: hidden; }
+  .hero { position: relative; min-height: 590px; display: grid; align-items: center; padding: clamp(3.5rem, 6vw, 5.5rem) 0; overflow: hidden; }
   .signal-field { position: absolute; width: min(56vw, 720px); right: -6vw; top: 8%; opacity: .22; pointer-events: none; }
   .signal-field svg { width: 100%; overflow: visible; }
   .signal-field path { fill: none; stroke: var(--violet); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
@@ -111,7 +106,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   h1 { margin: 0; font-family: var(--font-display); font-size: clamp(3.2rem, 5.4vw, 5.25rem); font-weight: 430; letter-spacing: -.058em; line-height: .95; }
   h1 em { color: inherit; font-weight: 400; }
   .hero-intro { max-width: 650px; margin: 1.65rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.08rem); line-height: 1.75; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.75rem; }
   .identity-card { position: relative; z-index: 2; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-raised); box-shadow: var(--shadow-soft); }
   .portrait-visual { position: relative; min-height: 280px; overflow: hidden; border-radius: 10px; background: #303849; }
   .portrait-visual::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,17,27,.04) 18%, rgba(13,17,27,.66) 100%); content: ''; }

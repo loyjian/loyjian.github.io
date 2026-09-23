@@ -19,7 +19,7 @@ export const siteConfig = {
   eyebrow: 'IoT Engineering · HNUST',
   headline: 'Studying security through unintended physical leakage.',
   introduction:
-    'I study information leakage from the physical behavior of embedded devices and the methods used to analyze and mitigate it.',
+    'Information leakage from the physical behavior of embedded devices, with methods for analysis and mitigation.',
   email: 'caijianluo@163.com',
   profileImage: '',
   lab: {

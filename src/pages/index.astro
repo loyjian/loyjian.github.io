@@ -16,7 +16,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-eyebrow"><span></span>{siteConfig.eyebrow}</p>
         <h1>Security in the<br /><em>unseen signals.</em></h1>
         <p class="hero-intro">{siteConfig.introduction}</p>
         <div class="hero-actions">
@@ -36,6 +35,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span>{siteConfig.location}</span>
         </div>
       </aside>
+    </div>
+  </section>
+
+  <section class="education-section" aria-labelledby="education-title">
+    <div class="container education-row">
+      <p class="eyebrow-text" id="education-title">Education</p>
+      <div class="education-mark" aria-hidden="true">
+        <img src="/hnust-emblem.png" alt="" />
+      </div>
+      <div class="education-copy">
+        <h2>{siteConfig.education.school}</h2>
+        <p>{siteConfig.education.degree} · {siteConfig.education.period}</p>
+        <small>{siteConfig.education.details}</small>
+      </div>
     </div>
   </section>
 
@@ -82,17 +95,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container about-grid">
       <p class="eyebrow-text about-label">About</p>
       <div class="about-content">
-        <div class="education-card">
-          <div class="education-mark" aria-hidden="true">
-            <img src="/hnust-emblem.png" alt="" />
-          </div>
-          <div>
-            <span>Education</span>
-            <h3>{siteConfig.education.school}</h3>
-            <p>{siteConfig.education.degree} · {siteConfig.education.period}</p>
-            <small>{siteConfig.education.details}</small>
-          </div>
-        </div>
         <p class="lead">
           Research activities in side-channel analysis are conducted with the
           <a href={siteConfig.lab.url} target="_blank" rel="noreferrer">{siteConfig.lab.name}</a>.
@@ -111,8 +113,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .signal-field .faint { opacity: .3; stroke-dasharray: 3 8; }
   .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); align-items: center; gap: clamp(3rem, 7vw, 6rem); }
   .hero-copy { position: relative; z-index: 2; }
-  .hero-eyebrow { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.4rem; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .hero-eyebrow span { width: 1.8rem; height: 1px; background: var(--violet); }
   h1 { margin: 0; font-family: var(--font-display); font-size: clamp(3.4rem, 6.2vw, 6rem); font-weight: 430; letter-spacing: -.062em; line-height: .92; }
   h1 em { color: var(--violet); font-weight: 400; }
   .hero-intro { max-width: 650px; margin: 1.65rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.08rem); line-height: 1.75; }
@@ -127,6 +127,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .identity-copy p { margin: 0; color: var(--violet); font-size: .72rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
   .identity-copy strong { display: block; margin-top: .4rem; font-family: var(--font-display); font-size: 1.4rem; }
   .identity-copy span { color: var(--muted); font-size: .8rem; }
+  .education-section { padding: 2rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-raised); }
+  .education-row { display: grid; grid-template-columns: minmax(110px, .3fr) 58px minmax(0, 1.7fr); align-items: center; gap: clamp(1rem, 2.5vw, 2rem); }
+  .education-mark { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; background: #0799d1; }
+  .education-mark img { width: 44px; height: 44px; object-fit: contain; filter: brightness(0) invert(1); }
+  .education-copy h2 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
+  .education-copy p { margin: .32rem 0 0; color: var(--muted); font-size: .86rem; }
+  .education-copy small { display: block; margin-top: .22rem; color: var(--muted); font-size: .78rem; }
   .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .focus-card { min-height: 230px; padding: clamp(1.4rem, 2.5vw, 1.9rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper-raised); }
   .focus-index { color: var(--muted); font-family: var(--font-display); font-size: .8rem; font-style: italic; }
@@ -148,14 +155,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .research-copy li { padding: .32rem .58rem; border: 1px solid #cdd6dc; border-radius: 999px; color: #586873; background: #f8fafb; font-size: .72rem; }
   .about-grid { display: grid; grid-template-columns: minmax(110px, .3fr) minmax(0, 1.7fr); gap: clamp(2rem, 5vw, 5rem); }
   .about-label { margin-top: .35rem; }
-  .lead { max-width: 850px; margin: 1.5rem 0 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.55; }
+  .lead { max-width: 850px; margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.55; }
   .lead a { color: var(--violet); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
-  .education-card { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 1rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper-raised); }
-  .education-mark { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: #0799d1; }
-  .education-mark img { width: 47px; height: 47px; object-fit: contain; filter: brightness(0) invert(1); }
-  .education-card span { color: var(--violet); font-size: .72rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
-  .education-card h3 { margin: .35rem 0; font-family: var(--font-display); font-size: 1.25rem; }
-  .education-card p, .education-card small { color: var(--muted); font-size: .82rem; }
   @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .identity-card { max-width: 460px; } .signal-field { width: 100vw; opacity: .2; } .focus-grid { grid-template-columns: 1fr; } .focus-card { min-height: auto; } .about-grid { grid-template-columns: 1fr; gap: 2rem; } .about-label { margin: 0; } }
-  @media (max-width: 620px) { .hero { min-height: auto; padding-top: 3.5rem; } h1 { font-size: clamp(3rem, 14vw, 4.4rem); } .identity-card { padding: .8rem; } .portrait-visual { min-height: 200px; } .research-card { grid-template-columns: 1fr; gap: .4rem; } .research-number { font-size: 1.8rem; } .education-card { grid-template-columns: 58px 1fr; } }
+  @media (max-width: 620px) { .hero { min-height: auto; padding-top: 3.5rem; } h1 { font-size: clamp(3rem, 14vw, 4.4rem); } .identity-card { padding: .8rem; } .portrait-visual { min-height: 200px; } .education-row { grid-template-columns: 48px 1fr; } .education-row > .eyebrow-text { grid-column: 1 / -1; } .education-mark { width: 46px; height: 46px; } .education-mark img { width: 38px; height: 38px; } .research-card { grid-template-columns: 1fr; gap: .4rem; } .research-number { font-size: 1.8rem; } }
 </style>

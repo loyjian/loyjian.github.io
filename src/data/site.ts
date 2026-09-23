@@ -65,7 +65,8 @@ export const siteConfig = {
   ],
   education: {
     school: 'Hunan University of Science and Technology',
-    degree: 'B.Eng. candidate in Internet of Things Engineering',
+    degree: 'B.Eng. candidate',
+    major: 'Internet of Things Engineering',
     period: 'Sep 2023 — Jun 2027',
     details: 'School of Computer Science and Engineering · Xiangtan, China',
   },

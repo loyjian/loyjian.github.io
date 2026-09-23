@@ -41,6 +41,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="education-copy">
         <h2>{siteConfig.education.school}</h2>
         <p>{siteConfig.education.degree} · {siteConfig.education.period}</p>
+        <small><strong>Major:</strong> {siteConfig.education.major}</small>
         <small>{siteConfig.education.details}</small>
       </div>
     </div>
@@ -105,14 +106,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .signal-field svg { width: 100%; overflow: visible; }
   .signal-field path { fill: none; stroke: var(--violet); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
   .signal-field .faint { opacity: .3; stroke-dasharray: 3 8; }
-  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); align-items: center; gap: clamp(3rem, 7vw, 6rem); }
+  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(340px, .82fr); align-items: center; gap: clamp(3rem, 6vw, 5rem); }
   .hero-copy { position: relative; z-index: 2; }
-  h1 { margin: 0; font-family: var(--font-display); font-size: clamp(3.4rem, 6.2vw, 6rem); font-weight: 430; letter-spacing: -.062em; line-height: .92; }
-  h1 em { color: var(--violet); font-weight: 400; }
+  h1 { margin: 0; font-family: var(--font-display); font-size: clamp(3.2rem, 5.4vw, 5.25rem); font-weight: 430; letter-spacing: -.058em; line-height: .95; }
+  h1 em { color: inherit; font-weight: 400; }
   .hero-intro { max-width: 650px; margin: 1.65rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.08rem); line-height: 1.75; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.75rem; }
   .identity-card { position: relative; z-index: 2; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-raised); box-shadow: var(--shadow-soft); }
-  .portrait-visual { position: relative; min-height: 215px; overflow: hidden; border-radius: 10px; background: #303849; }
+  .portrait-visual { position: relative; min-height: 280px; overflow: hidden; border-radius: 10px; background: #303849; }
   .portrait-visual::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,17,27,.04) 18%, rgba(13,17,27,.66) 100%); content: ''; }
   .portrait-visual img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
   .portrait-visual blockquote { position: absolute; z-index: 1; right: 1.25rem; bottom: 1.15rem; left: 1.25rem; margin: 0; color: rgba(255,255,255,.86); font-family: "Songti SC", "Noto Serif SC", var(--font-display); font-size: .92rem; letter-spacing: .04em; line-height: 1.65; text-shadow: 0 2px 18px rgba(0,0,0,.65); }
@@ -125,6 +126,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .education-copy h2 { margin: 0; overflow-wrap: anywhere; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
   .education-copy p { margin: .32rem 0 0; color: var(--muted); font-size: .86rem; }
   .education-copy small { display: block; margin-top: .22rem; color: var(--muted); font-size: .78rem; }
+  .education-copy small strong { color: var(--ink); font-weight: 650; }
   .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .focus-card { min-height: 230px; padding: clamp(1.4rem, 2.5vw, 1.9rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper-raised); }
   .focus-index { color: var(--muted); font-family: var(--font-display); font-size: .8rem; font-style: italic; }

@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --paper: #f4f2eb;
-  --paper-raised: #fbfaf6;
-  --ink: #17161b;
-  --muted: #69666f;
-  --muted-light: #96919c;
-  --line: #dedbd2;
-  --line-strong: #c7c2b8;
-  --violet: #6c45d8;
-  --violet-soft: #e9e1fb;
+  --paper: #f7f8fa;
+  --paper-raised: #ffffff;
+  --ink: #17212b;
+  --muted: #5f6b76;
+  --muted-light: #8b96a0;
+  --line: #dfe4e8;
+  --line-strong: #c8d0d7;
+  --violet: #315f7d;
+  --violet-soft: #e8f0f4;
   --cyan: #087b89;
   --cyan-soft: #d8eef0;
   --coral: #c4523d;
@@ -17,10 +17,10 @@
   --lime-soft: #e1ecc4;
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: Iowan Old Style, Baskerville, "Times New Roman", serif;
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 26px;
-  --shadow-soft: 0 22px 70px rgba(32, 26, 48, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-soft: 0 18px 50px rgba(22, 38, 50, 0.08);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -38,9 +38,7 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 90% 8%, rgba(108, 69, 216, 0.055), transparent 22rem),
-    var(--paper);
+  background: var(--paper);
   font-family: var(--font-sans);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -74,7 +72,7 @@ select {
 }
 
 .container {
-  width: min(100% - 2.5rem, 1220px);
+  width: min(100% - 3rem, 1120px);
   margin-inline: auto;
 }
 
@@ -84,7 +82,7 @@ select {
 }
 
 .section {
-  padding: clamp(5.5rem, 10vw, 9rem) 0;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
 }
 
 .section-rule {
@@ -111,17 +109,17 @@ select {
 }
 
 .button {
-  min-height: 3rem;
+  min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.78rem 1.15rem;
+  padding: 0.66rem 1rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
   color: var(--paper);
   background: var(--ink);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 720;
   transition:
     transform 180ms var(--ease-out),
@@ -146,7 +144,7 @@ select {
 .eyebrow-text {
   margin: 0;
   color: var(--violet);
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   font-weight: 760;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -165,7 +163,7 @@ select {
 @media (max-width: 540px) {
   .container,
   .narrow-container {
-    width: min(100% - 1.5rem, 1220px);
+    width: min(100% - 1.5rem, 1120px);
   }
 }
 

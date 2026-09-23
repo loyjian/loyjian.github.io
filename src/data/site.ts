@@ -7,7 +7,7 @@ export interface SocialLink {
 }
 
 export const siteConfig = {
-  isDraft: true,
+  isDraft: false,
   name: '罗才健',
   englishName: 'Caijian Luo',
   initials: 'CL',

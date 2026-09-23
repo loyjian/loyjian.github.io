@@ -22,16 +22,16 @@ const navItems = [
 </header>
 
 <style>
-  .site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 76%, transparent); background: color-mix(in srgb, var(--paper) 84%, transparent); backdrop-filter: blur(18px); }
-  .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, transparent); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(16px); }
+  .header-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
   .brand { display: inline-flex; align-items: center; gap: .72rem; color: var(--ink); font-weight: 720; letter-spacing: -.02em; }
-  .brand-mark { width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font-family: var(--font-display); font-size: .72rem; font-style: italic; }
+  .brand-mark { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--violet); font-family: var(--font-display); font-size: .72rem; font-style: italic; }
   .brand-name { display: inline-flex; align-items: baseline; gap: .5rem; }
   .brand-name small { color: var(--muted); font-size: .7rem; font-weight: 650; }
   nav ul { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); margin: 0; padding: 0; list-style: none; }
   nav a { color: var(--muted); font-size: .82rem; font-weight: 650; transition: color 160ms ease; }
   nav a:hover, nav a:focus-visible { color: var(--ink); }
-  .header-contact { padding: .7rem 1rem; border: 1px solid var(--ink); border-radius: 999px; font-size: .8rem; font-weight: 700; transition: color 160ms ease, background 160ms ease; }
-  .header-contact:hover { color: var(--paper); background: var(--ink); }
-  @media (max-width: 680px) { .header-inner { min-height: 64px; } .brand-name, .header-contact { display: none; } nav ul { gap: 1.1rem; } }
+  .header-contact { padding: .62rem .95rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .8rem; font-weight: 700; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
+  .header-contact:hover { border-color: var(--ink); color: var(--paper); background: var(--ink); }
+  @media (max-width: 680px) { .header-inner { min-height: 62px; gap: .8rem; } .brand-name, .header-contact { display: none; } nav ul { gap: .8rem; } nav a { font-size: .76rem; } }
 </style>

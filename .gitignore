@@ -5,6 +5,7 @@ node_modules/
 dist/
 .astro/
 preview/
+preview-*/
 
 # unoptimized source image; the site uses the WebP version
 public/rainy-transit-dusk.png

@@ -20,7 +20,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="hero-intro">{siteConfig.introduction}</p>
         <div class="hero-actions">
           <a class="button" href="#research">View research <Icon name="arrow" size={17} /></a>
-          <a class="button secondary" href={`mailto:${siteConfig.email}`}>Get in touch</a>
         </div>
       </div>
 
@@ -28,11 +27,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="portrait-visual">
           <img src="/rainy-transit-dusk.webp" alt="Rainy landscape seen through a transit window at dusk" />
           <blockquote>结局无非两种，<br /><strong>好事，好故事</strong></blockquote>
-        </div>
-        <div class="identity-copy">
-          <p>Undergraduate student in Internet of Things Engineering</p>
-          <strong>{siteConfig.englishName}</strong>
-          <span>{siteConfig.location}</span>
         </div>
       </aside>
     </div>
@@ -123,15 +117,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .portrait-visual img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
   .portrait-visual blockquote { position: absolute; z-index: 1; right: 1.25rem; bottom: 1.15rem; left: 1.25rem; margin: 0; color: rgba(255,255,255,.86); font-family: "Songti SC", "Noto Serif SC", var(--font-display); font-size: .92rem; letter-spacing: .04em; line-height: 1.65; text-shadow: 0 2px 18px rgba(0,0,0,.65); }
   .portrait-visual blockquote strong { color: white; font-size: 1.23rem; font-weight: 560; }
-  .identity-copy { padding: 1rem .2rem .45rem; }
-  .identity-copy p { margin: 0; color: var(--violet); font-size: .72rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
-  .identity-copy strong { display: block; margin-top: .4rem; font-family: var(--font-display); font-size: 1.4rem; }
-  .identity-copy span { color: var(--muted); font-size: .8rem; }
   .education-section { padding: 2rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-raised); }
   .education-row { display: grid; grid-template-columns: minmax(110px, .3fr) 58px minmax(0, 1.7fr); align-items: center; gap: clamp(1rem, 2.5vw, 2rem); }
   .education-mark { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; background: #0799d1; }
   .education-mark img { width: 44px; height: 44px; object-fit: contain; filter: brightness(0) invert(1); }
-  .education-copy h2 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
+  .education-copy { min-width: 0; }
+  .education-copy h2 { margin: 0; overflow-wrap: anywhere; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
   .education-copy p { margin: .32rem 0 0; color: var(--muted); font-size: .86rem; }
   .education-copy small { display: block; margin-top: .22rem; color: var(--muted); font-size: .78rem; }
   .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -149,14 +140,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .research-card { display: grid; grid-template-columns: 76px 1fr; gap: 1.5rem; padding: clamp(1.5rem, 3vw, 2.25rem); border: 1px solid #d6dde2; border-radius: var(--radius-md); background: rgba(255,255,255,.82); }
   .research-number { color: #7890a0; font-family: var(--font-display); font-size: 2.25rem; font-style: italic; }
   .research-label { margin: 0; color: var(--violet) !important; font-size: .72rem !important; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
-  .research-copy h3 { margin: .45rem 0 0; max-width: 800px; font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 520; letter-spacing: -.03em; }
+  .research-copy { min-width: 0; }
+  .research-copy h3 { margin: .45rem 0 0; max-width: 800px; overflow-wrap: anywhere; font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 520; letter-spacing: -.03em; }
   .research-copy > p { max-width: 850px; margin: .7rem 0 0; color: var(--muted); font-size: .94rem; line-height: 1.7; }
   .research-copy ul { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
   .research-copy li { padding: .32rem .58rem; border: 1px solid #cdd6dc; border-radius: 999px; color: #586873; background: #f8fafb; font-size: .72rem; }
   .about-grid { display: grid; grid-template-columns: minmax(110px, .3fr) minmax(0, 1.7fr); gap: clamp(2rem, 5vw, 5rem); }
+  .about-content { min-width: 0; }
   .about-label { margin-top: .35rem; }
   .lead { max-width: 850px; margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.55; }
-  .lead a { color: var(--violet); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  .lead a { overflow-wrap: anywhere; color: var(--violet); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
   @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .identity-card { max-width: 460px; } .signal-field { width: 100vw; opacity: .2; } .focus-grid { grid-template-columns: 1fr; } .focus-card { min-height: auto; } .about-grid { grid-template-columns: 1fr; gap: 2rem; } .about-label { margin: 0; } }
   @media (max-width: 620px) { .hero { min-height: auto; padding-top: 3.5rem; } h1 { font-size: clamp(3rem, 14vw, 4.4rem); } .identity-card { padding: .8rem; } .portrait-visual { min-height: 200px; } .education-row { grid-template-columns: 48px 1fr; } .education-row > .eyebrow-text { grid-column: 1 / -1; } .education-mark { width: 46px; height: 46px; } .education-mark img { width: 38px; height: 38px; } .research-card { grid-template-columns: 1fr; gap: .4rem; } .research-number { font-size: 1.8rem; } }
 </style>

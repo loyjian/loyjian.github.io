@@ -50,14 +50,14 @@ export const siteConfig = {
   research: [
     {
       label: 'Research topic · 01',
-      title: 'Far-field EM side-channel analysis with incomplete traces',
+      title: 'Liquid Neural Network in Far-Field EM Side-Channel Attack',
       summary:
         'This work studies AES key recovery from far-field electromagnetic traces and uses a liquid neural network to model both complete traces and incomplete traces with non-uniform sampling intervals.',
       tags: ['Side-channel attacks', 'Far-field EM emissions', 'Liquid neural network', 'AES', 'Incomplete trace'],
     },
     {
       label: 'Research topic · 02',
-      title: 'Evaluating clock-jitter countermeasures',
+      title: 'Communication Security: Quantify Clock Jitter-Based Countermeasures Against Deep Learning Side-Channel Attacks',
       summary:
         'This work quantifies the resistance of clock-jitter countermeasures against deep-learning-based side-channel attacks across multiple AES implementations, leakage sources, defense strengths, and attacker-knowledge settings.',
       tags: ['Side-Channel Attacks', 'Countermeasures', 'Advanced Encryption Standard', 'Deep Learning', 'Communication Security'],

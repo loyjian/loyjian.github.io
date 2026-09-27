@@ -2,6 +2,7 @@
 import { siteConfig } from '../data/site';
 
 const navItems = [
+  { label: 'Education', href: '/#education' },
   { label: 'Learning', href: '/#learning' },
   { label: 'Research', href: '/#research' },
   { label: 'About', href: '/#about' },
@@ -25,24 +26,27 @@ const navItems = [
 </header>
 
 <style>
-  .site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, transparent); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(16px); }
-  .header-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-  .brand { display: inline-flex; align-items: center; gap: .72rem; color: var(--ink); font-weight: 720; letter-spacing: -.02em; }
-  .brand-mark { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--violet); font-family: var(--font-display); font-size: .72rem; font-style: italic; }
+  .site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(10,14,39,.96); box-shadow: 0 4px 20px rgba(0,0,0,.22); backdrop-filter: blur(12px); }
+  .header-inner { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .brand { display: inline-flex; align-items: center; gap: .72rem; color: white; font-weight: 600; letter-spacing: -.01em; }
+  .brand-mark { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: white; font-family: var(--font-display); font-size: .72rem; }
   .brand-name { display: inline-flex; align-items: baseline; gap: .5rem; }
-  .brand-name small { color: var(--muted); font-size: .7rem; font-weight: 650; }
-  nav ul { display: flex; align-items: center; gap: clamp(1.6rem, 3.2vw, 2.8rem); margin: 0; padding: 0; list-style: none; }
-  nav a { color: var(--muted); font-size: .95rem; font-weight: 700; transition: color 160ms ease; }
-  nav a:hover, nav a:focus-visible { color: var(--ink); }
-  .header-contact { padding: .62rem .95rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .8rem; font-weight: 700; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
-  .header-contact:hover { border-color: var(--ink); color: var(--paper); background: var(--ink); }
+  .brand-name small { color: rgba(255,255,255,.62); font-size: .72rem; font-weight: 500; }
+  nav ul { display: flex; align-items: center; gap: clamp(1.25rem, 2.4vw, 2.2rem); margin: 0; padding: 0; list-style: none; }
+  nav a { position: relative; display: inline-flex; align-items: center; min-height: 60px; color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 500; transition: color 160ms ease; }
+  nav a::after { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; transform: scaleX(0); background: white; content: ''; transition: transform .2s ease; }
+  nav a:hover, nav a:focus-visible { color: white; }
+  nav a:hover::after, nav a:focus-visible::after { transform: scaleX(1); }
+  .header-contact { padding: .55rem .85rem; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: white; background: rgba(255,255,255,.08); font-size: .8rem; font-weight: 500; transition: border-color 160ms ease, background 160ms ease; }
+  .header-contact:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.16); }
   .email-short { display: none; }
   @media (max-width: 680px) {
-    .header-inner { min-height: auto; display: grid; grid-template-columns: auto 1fr; gap: .65rem 1rem; padding-block: .65rem; }
+    .header-inner { min-height: auto; display: grid; grid-template-columns: auto 1fr; gap: .4rem 1rem; padding-block: .55rem .3rem; }
     .brand-name { display: none; }
     nav { grid-column: 1 / -1; grid-row: 2; }
-    nav ul { justify-content: center; gap: 2rem; }
-    nav a { font-size: .88rem; }
+    nav ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+    nav li { min-width: 0; text-align: center; }
+    nav a { justify-content: center; width: 100%; min-height: 34px; padding-inline: .15rem; font-size: .76rem; }
     .header-contact { justify-self: end; margin-right: .15rem; padding: .48rem .8rem; }
     .email-address { display: none; }
     .email-short { display: inline; }

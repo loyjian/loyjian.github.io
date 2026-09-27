@@ -7,7 +7,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-name">Caijian Luo <span>罗才健</span></p>
         <h1>Security in the unseen signals.</h1>
         <p class="hero-intro">Information leakage from the physical behavior of embedded devices, with methods for analysis and mitigation.</p>
       </div>
@@ -71,7 +70,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <h2 class="section-title">About</h2>
       <p class="about-text">
-        Affiliated with the <a href={siteConfig.lab.url} target="_blank" rel="noreferrer">Laboratory of Intelligent Systems and Applications</a>, Hunan University of Science and Technology.
+        Undergraduate research is carried out under the guidance of a faculty member from the <a href={siteConfig.lab.url} target="_blank" rel="noreferrer">Laboratory of Intelligent Systems and Applications</a> at Hunan University of Science and Technology.
       </p>
     </div>
   </section>
@@ -81,8 +80,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero { position: relative; overflow: hidden; padding: clamp(4.5rem, 8vw, 7rem) 0; color: white; background: radial-gradient(circle at 18% 20%, rgba(75,111,235,.34), transparent 30rem), radial-gradient(circle at 82% 75%, rgba(0,180,205,.2), transparent 28rem), linear-gradient(135deg, #080d1e 0%, #111a37 46%, #182c58 100%); }
   .hero::after { position: absolute; inset: 0; background-image: radial-gradient(circle at center, rgba(255,255,255,.28) 0 1px, transparent 1.5px); background-size: 52px 52px; opacity: .12; content: ''; pointer-events: none; }
   .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr); align-items: center; gap: clamp(3rem, 7vw, 7rem); }
-  .hero-name { margin: 0 0 1.25rem; color: rgba(255,255,255,.72); font-size: .92rem; font-weight: 600; letter-spacing: .05em; }
-  .hero-name span { margin-left: .55rem; font-weight: 500; }
   h1 { max-width: 720px; margin: 0; font-family: var(--font-display); font-size: clamp(3rem, 5.6vw, 5rem); font-weight: 400; letter-spacing: -.035em; line-height: 1.08; }
   .hero-intro { max-width: 660px; margin: 1.6rem 0 0; color: rgba(255,255,255,.78); font-size: 1.06rem; line-height: 1.75; }
   .hero-image { position: relative; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; box-shadow: 0 22px 60px rgba(0,0,0,.3); }

@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <figure class="hero-image">
         <img src="/rainy-transit-dusk.webp" alt="Rainy landscape seen through a transit window at dusk" />
-        <blockquote>结局无非两种，<br /><strong>好事，好故事</strong></blockquote>
+        <blockquote>Every ending brings either<br /><strong>a blessing or a story worth telling.</strong></blockquote>
       </figure>
     </div>
   </section>
@@ -85,8 +85,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero-image { position: relative; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; box-shadow: 0 22px 60px rgba(0,0,0,.3); }
   .hero-image::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(4,8,18,.68) 100%); content: ''; }
   .hero-image img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: center 58%; }
-  .hero-image blockquote { position: absolute; z-index: 1; right: 1.5rem; bottom: 1.35rem; left: 1.5rem; margin: 0; color: rgba(255,255,255,.86); font-family: "Songti SC", "Noto Serif SC", serif; font-size: .94rem; line-height: 1.7; }
-  .hero-image blockquote strong { color: white; font-size: 1.25rem; font-weight: 600; }
+  .hero-image blockquote { position: absolute; z-index: 1; right: 1.5rem; bottom: 1.35rem; left: 1.5rem; margin: 0; color: rgba(255,255,255,.86); font-family: var(--font-display); font-size: .9rem; line-height: 1.6; }
+  .hero-image blockquote strong { color: white; font-size: 1.05rem; font-weight: 400; }
   .section { padding: clamp(4rem, 7vw, 5rem) 0; border-bottom: 1px solid var(--line); }
   .section-muted { background: var(--surface-muted); }
   .section-title { position: relative; display: inline-block; margin: 0 0 3rem; color: var(--ink); font-family: var(--font-display); font-size: clamp(2.1rem, 4vw, 2.5rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.15; }
